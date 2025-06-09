@@ -110,6 +110,40 @@ footer {
     font-size: 0.85em;
   }
 }
+.mobile-nav-toggle {
+  display: none;
+  font-size: 2em;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mobile-nav-toggle {
+    display: block;
+    background-color: #003366;
+  }
+
+  nav ul.nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #003366;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul.nav-links.show {
+    display: flex;
+  }
+
+  nav li a {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    border-top: 1px solid #004080;
+    border-bottom: 1px solid #004080;
+  }
+}
 
   </style>
 </head>
@@ -118,15 +152,15 @@ footer {
     <h1>Chiave dell'Uni</h1>
     <p>Orientamento per il futuro universitario</p>
   </header>
-  <nav>
-    <ul>
-      <li><a href="#servizi">Esami</a></li>
-      <li><a href="#universita">Università</a></li>
-      <li><a href="#alloggio">Alloggio</a></li>
-      <li><a href="#approfondimenti">Città</a></li>
-      <li><a href="#glossario">Glossario</a></li>
-    </ul>
-  </nav>
+<nav>
+  <div class="mobile-nav-toggle" onclick="toggleMenu()">☰</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="universita.html">Università</a></li>
+    <li><a href="alloggio.html">Alloggio</a></li>
+    <li><a href="glossario.html">Glossario</a></li>
+  </ul>
+</nav>
   <main>
     <section id="servizi">
       <h2>w Esami, TOLC, TIL</h2>
@@ -158,5 +192,12 @@ footer {
     <p>© 2025 Chiave dell'Uni - Tutti i diritti riservati</p>
     <p>Contattaci: info@chiavedelluni.it</p>
   </footer>
+  <script>
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('show');
+  }
+</script>
+
 </body>
 </html>
