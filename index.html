@@ -5,82 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Chiave dell'Uni</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #004080;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px 0;
-      margin: 0;
-      list-style: none;
-      background-color: #003366;
-    }
-    nav li a {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #0059b3;
-      border-radius: 6px;
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    nav li a:hover {
-      background-color: #3399ff;
-      transform: scale(1.05);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    main {
-      padding: 30px;
-      display: grid;
-      gap: 40px;
-    }
-    section {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
-    section h2 {
-      color: #004080;
-      margin-top: 0;
-    }
-    .section-link {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 16px;
-      background-color: #004080;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 0.9em;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #eee;
-      color: #555;
-    }
-  </style>
+  <link rel="stylesheet" href="index.css" />
 </head>
+
+<!-- Banner per i Cookies-->
 <body>
+<div id="cookie-banner" >
+  Questo sito utilizza cookie tecnici e di analisi. Vuoi accettare i cookie di terze parti (es. Google Analytics)?
+  <button onclick="acceptCookies()" style="margin-left: 10px;">Accetta</button>
+  <button onclick="rejectCookies()" style="margin-left: 5px;">Rifiuta</button>
+  <a href="/privacy.html" style="margin-left: 10px;">Privacy policy</a>
+</div>
+
+<!-- Inizio sito web-->
   <header>
     <h1>Chiave dell'Uni</h1>
     <p>Orientamento per il futuro universitario</p>
@@ -125,5 +62,81 @@
     <p>© 2025 Chiave dell'Uni - Tutti i diritti riservati</p>
     <p>Contattaci: info@chiavedelluni.it</p>
   </footer>
+  
+  <!--Script banner cookie -->
+ <script>
+  function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+  }
+
+  function getCookie(name) {
+    return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+  }
+
+  function showBanner() {
+    const banner = document.getElementById('cookie-banner');
+    banner.classList.add('show');
+  }
+
+  function hideBanner() {
+    const banner = document.getElementById('cookie-banner');
+    banner.classList.remove('show');
+  }
+
+  function acceptCookies() {
+    setCookie('cookie_consent', 'accepted', 365);
+    fadeOutBanner(loadAnalytics);
+  }
+
+  function rejectCookies() {
+    setCookie('cookie_consent', 'rejected', 365);
+    fadeOutBanner();
+  }
+
+  function fadeOutBanner(callback) {
+    const banner = document.getElementById('cookie-banner');
+    banner.style.opacity = '0';
+    banner.style.visibility = 'hidden';
+    // Aspetta il tempo della transizione (0.5s)
+    setTimeout(() => {
+      banner.style.display = 'none';
+      if (callback) callback();
+    }, 500);
+  }
+
+  function loadAnalytics() {
+    // Inserisci qui lo script GA solo dopo consenso
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BT0CLGBX26'; 
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BT0CLGBX26'); 
+  }
+
+  // Al caricamento della pagina
+  window.addEventListener('DOMContentLoaded', () => {
+    const consent = getCookie('cookie_consent');
+    const banner = document.getElementById('cookie-banner');
+
+    if (consent === 'accepted') {
+      loadAnalytics();
+      banner.style.display = 'none'; // non mostriamo banner
+    } else if (consent === 'rejected') {
+      banner.style.display = 'none'; // non mostriamo banner
+    } else {
+      // Mostra il banner con animazione
+      banner.style.display = 'block';
+      setTimeout(showBanner, 10);  // timeout per triggerare la transizione CSS
+    }
+  });
+</script>
+
+
+
 </body>
 </html>
