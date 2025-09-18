@@ -1,113 +1,56 @@
+
+/* Banner cookie */
+#cookie-banner {
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.section-link:hover {
+  background-color: #1D4ED8; /* blu Tailwind 700 */
+}
+
 body {
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
+	font-family: "Lexend", sans-serif;
 }
 
-header {
-  background-color: #004080;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
+/* Titoli sezioni */
+section h2 {
+  font-size: 1.875rem; /* 3xl */
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: black; 
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2em;
-}
- nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px 0;
-      margin: 0;
-      list-style: none;
-      background-color: #003366;
+ main {
+      padding: 30px;
+      display: grid;
+      gap: 40px;
     }
-    nav li a {
+    section {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    section h2 {
+      color: #004080;
+      margin-top: 0;
+    }
+    .section-link {
       display: inline-block;
-      padding: 10px 20px;
-      background-color: #0059b3;
-      border-radius: 6px;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: #1E40AF;
       color: white;
+      border-radius: 5px;
       text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      font-size: 0.9em;
     }
-    nav li a:hover {
-      background-color: #3399ff;
-      transform: scale(1.05);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-#searchBar {
-  width: 300px;         /* oppure 50%, 20em, ecc. */
-  display: block;       /* obbligatorio se inline */
-  margin: 20px auto;    /* centrato orizzontalmente */
-  padding: 10px;
-  font-size: 16px;
-  border: 2px solid #004080;
-  border-radius: 8px;
+/* Footer link */
+footer a {
+  text-decoration: underline;
+  color: white;
 }
 
-
-main {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-.accordion {
-  background-color: white;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-}
-
-.accordion-header {
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-weight: bold;
-  background-color: #e6f0ff;
-  transition: background-color 0.3s ease;
-}
-
-.accordion-header:hover {
-  background-color: #cce0ff;
-}
-
-.accordion-header .arrow {
-  transition: transform 0.3s ease;
-}
-
-.accordion-header.active .arrow {
-  transform: rotate(180deg);
-}
-
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  padding: 0 20px;
-}
-
-.accordion-content.open {
-  padding: 15px 20px;
-  max-height: 500px;
-  transition: max-height 0.5s ease;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #eee;
-  color: #555;
-  margin-top: 40px;
+footer a:hover {
+  color: #93C5FD; /* blu chiaro */
 }
