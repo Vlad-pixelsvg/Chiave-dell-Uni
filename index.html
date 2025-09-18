@@ -1,20 +1,24 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Chiave dell'Uni</title>
-  <!---- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/> -->
-  <link rel="stylesheet" href="index.css"/>
+
+  <!-- Google Fonts Lexend -->
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- CSS personalizzato -->
+  <link rel="stylesheet" href="index.css">
 </head>
+<body class="bg-gray-100">
 
-<body>
-
-<!-- Banner per i Cookies -->
+<!-- Barra dei cookie -->
 <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 flex flex-col md:flex-row items-center justify-center gap-3 z-50 opacity-95">
-  <span>Questo sito utilizza cookie tecnici e di analisi. Vuoi accettare i cookie di terze parti (es. Google Analytics)?</span>
+  <span>Questo sito utilizza cookie tecnici e di analisi. Vuoi accettare i cookie di terze parti?</span>
   <div>
     <button onclick="acceptCookies()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md transition">Accetta</button>
     <button onclick="rejectCookies()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition ml-2">Rifiuta</button>
@@ -29,11 +33,11 @@
 
     <!-- Menu desktop -->
     <ul class="hidden md:flex space-x-8 font-medium text-gray-700">
-      <li><a href="esami.html" class="hover:text-blue-600 transition">Esami</a></li>
-      <li><a href="universita.html" class="hover:text-blue-600 transition">Università</a></li>
-      <li><a href="alloggio.html" class="hover:text-blue-600 transition">Alloggio</a></li>
-      <li><a href="approfondimenti.html" class="hover:text-blue-600 transition">Città</a></li>
-      <li><a href="glossario.html" class="hover:text-blue-600 transition">Glossario</a></li>
+      <li><a href="#esami" class="hover:text-blue-600 transition">Esami</a></li>
+      <li><a href="#universita" class="hover:text-blue-600 transition">Università</a></li>
+      <li><a href="#alloggio" class="hover:text-blue-600 transition">Alloggio</a></li>
+      <li><a href="#citta" class="hover:text-blue-600 transition">Città</a></li>
+      <li><a href="#glossario" class="hover:text-blue-600 transition">Glossario</a></li>
     </ul>
 
     <!-- Bottone mobile -->
@@ -47,58 +51,43 @@
   <!-- Menu mobile -->
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
     <ul class="flex flex-col p-4 space-y-3 text-gray-700 font-medium">
-      <li><a href="#servizi" class="hover:text-blue-600 transition">Esami</a></li>
+      <li><a href="#esami" class="hover:text-blue-600 transition">Esami</a></li>
       <li><a href="#universita" class="hover:text-blue-600 transition">Università</a></li>
       <li><a href="#alloggio" class="hover:text-blue-600 transition">Alloggio</a></li>
-      <li><a href="#approfondimenti" class="hover:text-blue-600 transition">Città</a></li>
+      <li><a href="#citta" class="hover:text-blue-600 transition">Città</a></li>
       <li><a href="#glossario" class="hover:text-blue-600 transition">Glossario</a></li>
     </ul>
   </div>
 </nav>
 
- <script>
-  const btn = document.getElementById("menu-btn");
-  const menu = document.getElementById("mobile-menu");
-  btn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
-</script>
-
-
-<!-- Sezione 1: Hero -->
-  <section class="w-full bg-blue-600 text-white py-20 flex flex-col items-center">
-    <h1 class="text-5xl font-extrabold mb-4 drop-shadow-md"> Chiave dell'Uni</h1>
-    <p class="text-xl max-w-2xl text-center mb-6">La tua guida completa per orientarti nel mondo universitario: testi di ammissione, università, alloggi e molto altro.</p>
-    <a href="#iscrizione" class="px-6 py-3 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition">Vai alla guida passo-passo</a>
+<!-- Contenuto principale -->
+<main class="mt-24">
+  <section id="esami">
+    <h2>Esami</h2>
+    <p>Preparazione e scelta del test d'ingresso più adatto.</p>
+    <a class="section-link" href="esami.html">Scopri di più</a>
   </section>
-  
-<main>
-    <section id="servizi">
-      <h2>Esami, TOLC, TIL</h2>
-      <p>Ti guidiamo passo dopo passo nella preparazione e scelta del test d'ingresso più adatto.</p>
-      <a class="section-link" href="esami.html">Scopri di più</a>
-    </section>
-    <section id="universita">
-      <h2>Università, Politecnico e Accademia</h2>
-      <p>Scopri le differenze tra i vari tipi di istituzioni universitarie.</p>
-      <a class="section-link" href="universita.html">Approfondisci</a>
-    </section>
-    <section id="alloggio">
-      <h2>Alloggio e Borse di Studio</h2>
-      <p>Guida ad alloggi, campus, residenze e agli enti universitari che offrono borse di studio.</p>
-      <a class="section-link" href="alloggio.html">Vedi dettagli</a>
-    </section>
-    <section id="approfondimenti">
-      <h2>Approfondimenti per Città</h2>
-      <p>Scopri come cambia l'offerta formativa e logistica nelle principali città italiane.</p>
-      <a class="section-link" href="citta.html">Esplora le città</a>
-    </section>
-    <section id="glossario">
-      <h2>Glossario</h2>
-      <p>Spiegazioni e definizioni dei termini più importanti relativi all’università e ai test di ingresso.</p>
-      <a class="section-link" href="glossario.html">Scopri di più</a>
-    </section>
-  </main>
+  <section id="universita">
+    <h2>Università</h2>
+    <p>Informazioni sulle varie istituzioni universitarie.</p>
+    <a class="section-link" href="universita.html">Approfondisci</a>
+  </section>
+  <section id="alloggio">
+    <h2>Alloggio</h2>
+    <p>Guide agli alloggi e borse di studio.</p>
+    <a class="section-link" href="alloggio.html">Vedi dettagli</a>
+  </section>
+  <section id="citta">
+    <h2>Città</h2>
+    <p>Informazioni logistiche e offerte formative delle principali città italiane.</p>
+    <a class="section-link" href="citta.html">Esplora le città</a>
+  </section>
+  <section id="glossario">
+    <h2>Glossario</h2>
+    <p>Spiegazioni dei termini più importanti relativi all’università e ai test di ingresso.</p>
+    <a class="section-link" href="glossario.html">Scopri di più</a>
+  </section>
+</main>
 
 <!-- Footer -->
 <footer class="w-full bg-blue-600 text-white py-6 mt-20 flex flex-col items-center">
@@ -107,11 +96,17 @@
   <p><a href="privacy.html" class="underline">Privacy Policy</a></p>
 </footer>
 
-<!-- Script banner cookie -->
+<!-- Script JS -->
 <script>
+  // Menu mobile
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+
+  // Cookies
   function setCookie(name, value, days) {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
-    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires;
   }
 
   function getCookie(name) {
@@ -120,7 +115,7 @@
 
   function acceptCookies() {
     setCookie('cookie_consent', 'accepted', 365);
-    fadeOutBanner(loadAnalytics);
+    fadeOutBanner();
   }
 
   function rejectCookies() {
@@ -128,34 +123,21 @@
     fadeOutBanner();
   }
 
-  function fadeOutBanner(callback) {
+  function fadeOutBanner() {
     const banner = document.getElementById('cookie-banner');
-    banner.style.display = 'none';
-    if (callback) callback();
-  }
-
-  function loadAnalytics() {
-    const script = document.createElement('script');
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BT0CLGBX26';
-    script.async = true;
-    document.head.appendChild(script);
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-BT0CLGBX26');
+    banner.style.opacity = 0;
+    banner.style.visibility = 'hidden';
   }
 
   window.addEventListener('DOMContentLoaded', () => {
     const consent = getCookie('cookie_consent');
     const banner = document.getElementById('cookie-banner');
-    if (consent === 'accepted') {
-      loadAnalytics();
-      banner.style.display = 'none';
-    } else if (consent === 'rejected') {
-      banner.style.display = 'none';
+    if (consent === 'accepted' || consent === 'rejected') {
+      banner.style.opacity = 0;
+      banner.style.visibility = 'hidden';
     } else {
-      banner.style.display = 'flex';
+      banner.style.opacity = 1;
+      banner.style.visibility = 'visible';
     }
   });
 </script>
