@@ -4,34 +4,75 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Chiave dell'Uni</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="index.css" />
+  <!---- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/> -->
+  <link rel="stylesheet" href="index.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<!-- Banner per i Cookies-->
 <body>
-<div id="cookie-banner" >
-  Questo sito utilizza cookie tecnici e di analisi. Vuoi accettare i cookie di terze parti (es. Google Analytics)?
-  <button onclick="acceptCookies()" style="margin-left: 10px;">Accetta</button>
-  <button onclick="rejectCookies()" style="margin-left: 5px;">Rifiuta</button>
-  <a href="privacy.html" style="margin-left: 10px;">Privacy policy</a>
+
+<!-- Banner per i Cookies -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-gray-800 text-white p-4 flex flex-col md:flex-row items-center justify-center gap-3 z-50 opacity-95">
+  <span>Questo sito utilizza cookie tecnici e di analisi. Vuoi accettare i cookie di terze parti (es. Google Analytics)?</span>
+  <div>
+    <button onclick="acceptCookies()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md transition">Accetta</button>
+    <button onclick="rejectCookies()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition ml-2">Rifiuta</button>
+    <a href="privacy.html" class="underline ml-3">Privacy policy</a>
+  </div>
 </div>
 
-<!-- Inizio sito web-->
-  <header>
-    <h1>Chiave dell'Uni</h1>
-    <p>Orientamento per il futuro universitario</p>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="#servizi">Esami</a></li>
-      <li><a href="#universita">Università</a></li>
-      <li><a href="#alloggio">Alloggio</a></li>
-      <li><a href="#approfondimenti">Città</a></li>
-      <li><a href="#glossario">Glossario</a></li>
+<!-- Navbar -->
+<nav class="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-2xl font-bold text-blue-700">Chiave dell'Uni</a>
+
+    <!-- Menu desktop -->
+    <ul class="hidden md:flex space-x-8 font-medium text-gray-700">
+      <li><a href="esami.html" class="hover:text-blue-600 transition">Esami</a></li>
+      <li><a href="universita.html" class="hover:text-blue-600 transition">Università</a></li>
+      <li><a href="alloggio.html" class="hover:text-blue-600 transition">Alloggio</a></li>
+      <li><a href="approfondimenti.html" class="hover:text-blue-600 transition">Città</a></li>
+      <li><a href="glossario.html" class="hover:text-blue-600 transition">Glossario</a></li>
     </ul>
-  </nav>
-  <main>
+
+    <!-- Bottone mobile -->
+    <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menu mobile -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <ul class="flex flex-col p-4 space-y-3 text-gray-700 font-medium">
+      <li><a href="#servizi" class="hover:text-blue-600 transition">Esami</a></li>
+      <li><a href="#universita" class="hover:text-blue-600 transition">Università</a></li>
+      <li><a href="#alloggio" class="hover:text-blue-600 transition">Alloggio</a></li>
+      <li><a href="#approfondimenti" class="hover:text-blue-600 transition">Città</a></li>
+      <li><a href="#glossario" class="hover:text-blue-600 transition">Glossario</a></li>
+    </ul>
+  </div>
+</nav>
+
+ <script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>
+
+
+<!-- Sezione 1: Hero -->
+  <section class="w-full bg-blue-600 text-white py-20 flex flex-col items-center">
+    <h1 class="text-5xl font-extrabold mb-4 drop-shadow-md"> Chiave dell'Uni</h1>
+    <p class="text-xl max-w-2xl text-center mb-6">La tua guida completa per orientarti nel mondo universitario: testi di ammissione, università, alloggi e molto altro.</p>
+    <a href="#iscrizione" class="px-6 py-3 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition">Vai alla guida passo-passo</a>
+  </section>
+  
+<main>
     <section id="servizi">
       <h2>Esami, TOLC, TIL</h2>
       <p>Ti guidiamo passo dopo passo nella preparazione e scelta del test d'ingresso più adatto.</p>
@@ -58,14 +99,16 @@
       <a class="section-link" href="glossario.html">Scopri di più</a>
     </section>
   </main>
-  <footer>
-    <p>© 2025 Chiave dell'Uni - Tutti i diritti riservati</p>
-    <p>Contattaci: info@chiavedelluni.it</p>
-    <a href="privacy.html">Privacy Policy</a>
-  </footer>
-  
-  <!--Script banner cookie -->
- <script>
+
+<!-- Footer -->
+<footer class="w-full bg-blue-600 text-white py-6 mt-20 flex flex-col items-center">
+  <p>© 2025 Chiave dell'Uni - Tutti i diritti riservati</p>
+  <p>Contattaci: <a href="mailto:chiavedelluni.info@gmail.com" class="underline">chiavedelluni.info@gmail.com</a></p>
+  <p><a href="privacy.html" class="underline">Privacy Policy</a></p>
+</footer>
+
+<!-- Script banner cookie -->
+<script>
   function setCookie(name, value, days) {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
     document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
@@ -73,16 +116,6 @@
 
   function getCookie(name) {
     return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
-  }
-
-  function showBanner() {
-    const banner = document.getElementById('cookie-banner');
-    banner.classList.add('show');
-  }
-
-  function hideBanner() {
-    const banner = document.getElementById('cookie-banner');
-    banner.classList.remove('show');
   }
 
   function acceptCookies() {
@@ -97,48 +130,35 @@
 
   function fadeOutBanner(callback) {
     const banner = document.getElementById('cookie-banner');
-    banner.style.opacity = '0';
-    banner.style.visibility = 'hidden';
-    // Aspetta il tempo della transizione (0.5s)
-    setTimeout(() => {
-      banner.style.display = 'none';
-      if (callback) callback();
-    }, 500);
+    banner.style.display = 'none';
+    if (callback) callback();
   }
 
   function loadAnalytics() {
-    // Inserisci qui lo script GA solo dopo consenso
     const script = document.createElement('script');
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BT0CLGBX26'; 
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BT0CLGBX26';
     script.async = true;
     document.head.appendChild(script);
 
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-BT0CLGBX26'); 
+    gtag('config', 'G-BT0CLGBX26');
   }
 
-  // Al caricamento della pagina
   window.addEventListener('DOMContentLoaded', () => {
     const consent = getCookie('cookie_consent');
     const banner = document.getElementById('cookie-banner');
-
     if (consent === 'accepted') {
       loadAnalytics();
-      banner.style.display = 'none'; // non mostriamo banner
+      banner.style.display = 'none';
     } else if (consent === 'rejected') {
-      banner.style.display = 'none'; // non mostriamo banner
+      banner.style.display = 'none';
     } else {
-      // Mostra il banner con animazione
-      banner.style.display = 'block';
-      setTimeout(showBanner, 10);  // timeout per triggerare la transizione CSS
+      banner.style.display = 'flex';
     }
   });
 </script>
 
-
-
 </body>
 </html>
-
