@@ -3,113 +3,352 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Esami di Ammissione - Chiave dell'Uni</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header, footer {
-      background-color: #004080;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-    }
-    nav {
-      background-color: #003366;
-      text-align: center;
-      padding: 10px 0;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 600;
-      background-color: #0059b3;
-      padding: 8px 16px;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-    }
-    nav a:hover {
-      background-color: #3399ff;
-      transform: scale(1.05);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
-    h2 {
-      color: #004080;
-    }
-    ul {
-      line-height: 1.6;
-    }
-    a.button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #004080;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Guida al TOLC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
+
+<style>
+body {
+
+  background: linear-gradient(to bottom, #eff6ff, #dbeafe); 
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+
+ 
+  font-family: "Lexend", sans-serif;
+}
+
+</style>
 <body>
-  <header>
-    <h1>Chiave dell'Uni</h1>
-    <p>Esami, TOLC, TIL - Come affrontare i test d'ammissione</p>
-  </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="universita.html">Università</a>
-    <a href="alloggio.html">Alloggio</a>
-    <a href="citta.html">Città</a>
-    <a href="glossario.html">Glossario</a>
-  </nav>
+<!-- Navbar -->
+<nav class="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    
+    <!-- Logo -->
+    <a href="#" class="text-2xl font-bold text-blue-700">Guida TOLC</a>
 
-  <main>
-    <h2>Esami di Ammissione</h2>
-    <p>Entrare all’università può richiedere il superamento di test specifici. Ecco una guida ai tre principali strumenti di selezione:</p>
-
-    <h3>TOLC - Test Online CISIA</h3>
-    <ul>
-      <li>Organizzato dal consorzio CISIA.</li>
-      <li>Test informatizzati, svolti online o in presenza.</li>
-      <li>Utilizzati da molte facoltà scientifiche e sanitarie.</li>
-      <li><a href="https://www.cisiaonline.it" target="_blank">Vai al sito del CISIA</a></li>
+    <!-- Menu desktop -->
+    <ul class="hidden md:flex space-x-8 font-medium text-gray-700">
+	  <li><a href="index.html" class="hover:text-blue-600 transition">Home</a></li>
+      <li><a href="#servizi" class="hover:text-blue-600 transition">Esami</a></li>
+      <li><a href="#universita" class="hover:text-blue-600 transition">Università</a></li>
+      <li><a href="#alloggio" class="hover:text-blue-600 transition">Alloggio</a></li>
+      <li><a href="#approfondimenti" class="hover:text-blue-600 transition">Città</a></li>
+      <li><a href="#glossario" class="hover:text-blue-600 transition">Glossario</a></li>
     </ul>
 
-    <h3>TIL - Test In Linea</h3>
-    <ul>
-      <li>Test adottati soprattutto dal Politecnico di Torino.</li>
-      <li>Struttura simile al TOLC, ma con calendario specifico.</li>
-      <li>Richiede registrazione al portale dell'ateneo.</li>
+    <!-- Bottone mobile -->
+    <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menu mobile -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+    <ul class="flex flex-col p-4 space-y-3 text-gray-700 font-medium">
+	  <li><a href="index.html" class="hover:text-blue-600 transition">Home</a></li>
+      <li><a href="#servizi" class="hover:text-blue-600 transition">Esami</a></li>
+      <li><a href="#universita" class="hover:text-blue-600 transition">Università</a></li>
+      <li><a href="#alloggio" class="hover:text-blue-600 transition">Alloggio</a></li>
+      <li><a href="#approfondimenti" class="hover:text-blue-600 transition">Città</a></li>
+      <li><a href="#glossario" class="hover:text-blue-600 transition">Glossario</a></li>
     </ul>
+  </div>
+</nav>
 
-    <h3>Esami Universitari Privati</h3>
-    <ul>
-      <li>Università private possono organizzare esami propri.</li>
-      <li>Prove scritte, orali o colloqui motivazionali.</li>
-      <li>Ogni università ha modalità e calendari differenti.</li>
-    </ul>
+<script>
+  // Toggle menu mobile
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>
 
-    <a class="button" href="https://www.cisiaonline.it">Accedi al portale CISIA</a>
-  </main>
+  <!-- Sezione 1: Hero -->
+  <section class="w-full bg-blue-600 text-white py-20 flex flex-col items-center">
+    <h1 class="text-5xl font-extrabold mb-4 drop-shadow-md">Guida al</h1>
+    <h1 class="text-5xl font-extrabold mb-4 drop-shadow-md">Esame d'ammissione</h1>
+    <p class="text-xl max-w-2xl text-center mb-6">Scopri come iscrisverti, prepararti e conoscere i vari tipi di test per l'ammissione universitaria.</p>
+    <a href="#iscrizione" class="px-6 py-3 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition">Vai alla guida passo-passo</a>
+  </section>
+  
+  <!-- Sezione Tipologie di Esami -->
+<section id="tipologie-esami" class="w-full py-20 bg-blue-50 flex flex-col items-center">
+  <!-- Titolo -->
+  <h2 class="text-4xl font-bold text-blue-800 mb-12 text-center">Tipologie di esami</h2>
 
-  <footer>
-    <p>© 2025 Chiave dell'Uni - Tutti i diritti riservati</p>
-    <p>Contatti: info@chiavedelluni.it</p>
-  </footer>
-</body>
-</html>
+  <!-- Pulsanti -->
+  <div class="flex flex-col md:flex-row items-center justify-center gap-12 mb-8">
+    
+    <!-- Test Ministeriali -->
+    <a href="#test-ministeriale" class="bg-white text-blue-700 font-semibold px-8 py-6 rounded-2xl shadow-md hover:bg-blue-100 transition text-center w-64">
+      Test Ministeriali
+    </a>
+
+    <!-- TOLC -->
+    <a href="#tolc" class="bg-blue-600 text-white font-bold px-8 py-6 rounded-2xl shadow-xl hover:bg-blue-700 transition text-center w-64">
+      TOLC
+    </a>
+
+    <!-- Esami di Selezione -->
+    <a href="#esami-selezione" class="bg-white text-blue-700 font-semibold px-8 py-6 rounded-2xl shadow-md hover:bg-blue-100 transition text-center w-64">
+      Esami di Selezione
+    </a>
+
+  </div>
+  <p class="text-gray-700 text-center max-w-2xl">
+    Scegli la tipologia di esami che vuoi scegliere in base alla tua facoltà!
+  </p>
+</section>
+
+
+  <!-- Sezione 2: Come iscriversi -->
+<section id="iscrizione" class="w-full py-20 flex flex-col items-center bg-white">
+  <h2 class="text-4xl font-bold mb-10 text-blue-800">Come iscriversi al TOLC</h2>
+  <div class="flex flex-col md:flex-row gap-8 max-w-4xl">
+    <div class="flex-1 p-6 bg-blue-50 rounded-2xl shadow">
+      <h3 class="font-semibold text-xl mb-2">1. Registrati al portale CISIA</h3>
+      <p>Creare un account sul sito ufficiale e completare i dati personali.</p>
+    </div>
+    <div class="flex-1 p-6 bg-blue-50 rounded-2xl shadow">
+      <h3 class="font-semibold text-xl mb-2">2. Verifica il sito dell'università</h3>
+      <p>Controlla il tolc richiesto per il corso di laurea sul sito dell'università.</p>
+    </div>
+    <div class="flex-1 p-6 bg-blue-50 rounded-2xl shadow">
+      <h3 class="font-semibold text-xl mb-2">3. Paga la quota e conferma</h3>
+      <p>Effettua il pagamento Cisia online e ricevi conferma via email.</p>
+    </div>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-8 max-w-4xl mt-8">
+    <div class="flex-1 p-6 bg-blue-50 rounded-2xl shadow">
+      <h3 class="font-semibold text-xl mb-2">4. Carica l'esame</h3>
+      <p>Carica sulla piattaforma dell'università il Tolc con il maggior punteggio.</p>
+    </div>
+	<div class="flex-1 p-6 bg-blue-50 rounded-2xl shadow">
+      <h3 class="font-semibold text-xl mb-2">5. Ripeti</h3>
+      <p>Ripeti il procedimento anche per altre università, anche con lo stesso Tolc.</p>
+    </div>
+    <div class="flex-1 p-6 bg-blue-50 rounded-2xl shadow">
+      <h3 class="font-semibold text-xl mb-2">6. Verifica le graduatorie</h3>
+      <p>Aspetta le graduatorie e lo scorrimento per poter immatricolarti.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Sezione: Iscrizione vs Immatricolazione -->
+<section id="iscrizione-vs-immatricolazione" class="w-full py-20 flex flex-col items-center bg-gray-50">
+  <h2 class="text-4xl font-extrabold mb-10 text-blue-800 text-center">Iscrizione vs Immatricolazione</h2>
+  <div class="flex flex-col md:flex-row gap-8 max-w-4xl">
+    <div class="flex-1 p-6 bg-white rounded-2xl shadow border-l-4 border-blue-600">
+      <h3 class="font-semibold text-2xl mb-4 text-blue-700">Iscrizione</h3>
+      <ul class="list-disc pl-5 text-gray-700">
+        <li>Puoi iscriverti a più università contemporaneamente.</li>
+        <li>Puoi partecipare a più graduatorie con lo stesso TOLC.</li>
+        <li>Serve per partecipare al processo di ammissione.</li>
+      </ul>
+    </div>
+    <div class="flex-1 p-6 bg-blue-100 rounded-2xl shadow border-l-4 border-green-600">
+      <h3 class="font-semibold text-2xl mb-4 text-green-700">Immatricolazione</h3>
+      <ul class="list-disc pl-5 text-gray-700">
+        <li>L'immatricolazione è unica: puoi immatricolarti in un solo corso e ateneo.</li>
+        <li>Blocca la tua posizione nel corso scelto.</li>
+        <li>Si effettua solo dopo essere risultati idonei o aver superato eventuali test.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Carosello TOLC completo -->
+<div id="carousel" class="relative w-full max-w-3xl overflow-hidden rounded-3xl shadow-2xl bg-white my-20 mx-auto">
+  <!-- Slide container -->
+  <div id="slides" class="relative h-80">
+    <!-- Slide 1 -->
+    <div class="slide active absolute inset-0 flex flex-col items-center justify-center p-6">
+      <h3 class="text-3xl font-bold text-blue-700 mb-4">TOLC-AV</h3>
+      <img src="https://via.placeholder.com/500x250/1E3A8A/ffffff?text=TOLC-AV" alt="TOLC-AV" class="rounded-2xl mb-6 shadow-md">
+      <p class="text-center text-gray-600 mb-6">Corsi di laurea in ambito agrario e veterinario.</p>
+      <a href="#" class="px-6 py-3 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition">Scopri di più</a>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide absolute inset-0 flex flex-col items-center justify-center p-6">
+      <h3 class="text-3xl font-bold text-blue-700 mb-4">TOLC-B</h3>
+      <img src="https://via.placeholder.com/500x250/1E40AF/ffffff?text=TOLC-B" alt="TOLC-B" class="rounded-2xl mb-6 shadow-md">
+      <p class="text-center text-gray-600 mb-6">Corsi di laurea in scienze biologiche e affini.</p>
+      <a href="#" class="px-6 py-3 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition">Scopri di più</a>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide absolute inset-0 flex flex-col items-center justify-center p-6">
+      <h3 class="text-3xl font-bold text-green-700 mb-4">TOLC-E</h3>
+      <img src="https://via.placeholder.com/500x250/047857/ffffff?text=TOLC-E" alt="TOLC-E" class="rounded-2xl mb-6 shadow-md">
+      <p class="text-center text-gray-600 mb-6">Corsi di laurea in economia e scienze sociali.</p>
+      <a href="#" class="px-6 py-3 bg-green-600 text-white rounded-full shadow hover:bg-green-700 transition">Scopri di più</a>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide absolute inset-0 flex flex-col items-center justify-center p-6">
+      <h3 class="text-3xl font-bold text-purple-700 mb-4">TOLC-F</h3>
+      <img src="https://via.placeholder.com/500x250/6D28D9/ffffff?text=TOLC-F" alt="TOLC-F" class="rounded-2xl mb-6 shadow-md">
+      <p class="text-center text-gray-600 mb-6">Corsi di laurea in scienze farmaceutiche e affini.</p>
+      <a href="#" class="px-6 py-3 bg-purple-600 text-white rounded-full shadow hover:bg-purple-700 transition">Scopri di più</a>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide absolute inset-0 flex flex-col items-center justify-center p-6">
+      <h3 class="text-3xl font-bold text-blue-700 mb-4">TOLC-I</h3>
+      <img src="https://via.placeholder.com/500x250/1E40AF/ffffff?text=TOLC-I" alt="TOLC-I" class="rounded-2xl mb-6 shadow-md">
+      <p class="text-center text-gray-600 mb-6">Corsi di laurea in ingegneria e scienze applicate.</p>
+      <a href="#" class="px-6 py-3 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition">Scopri di più</a>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide absolute inset-0 flex flex-col items-center justify-center p-6">
+      <h3 class="text-3xl font-bold text-yellow-700 mb-4">TOLC-LP</h3>
+      <img src="https://via.placeholder.com/500x250/F59E0B/ffffff?text=TOLC-LP" alt="TOLC-LP" class="rounded-2xl mb-6 shadow-md">
+      <p class="text-center text-gray-600 mb-6">Corsi di laurea professionalizzanti.</p>
+      <a href="#" class="px-6 py-3 bg-yellow-600 text-white rounded-full shadow hover:bg-yellow-700 transition">Scopri di più</a>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide absolute inset-0 flex flex-col items-center justify-center p-6">
+      <h3 class="text-3xl font-bold text-pink-700 mb-4">TOLC-PSI</h3>
+      <img src="https://via.placeholder.com/500x250/DB2777/ffffff?text=TOLC-PSI" alt="TOLC-PSI" class="rounded-2xl mb-6 shadow-md">
+      <p class="text-center text-gray-600 mb-6">Corsi di laurea in scienze psicologiche.</p>
+      <a href="#" class="px-6 py-3 bg-pink-600 text-white rounded-full shadow hover:bg-pink-700 transition">Scopri di più</a>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide absolute inset-0 flex flex-col items-center justify-center p-6">
+      <h3 class="text-3xl font-bold text-teal-700 mb-4">TOLC-S</h3>
+      <img src="https://via.placeholder.com/500x250/0D9488/ffffff?text=TOLC-S" alt="TOLC-S" class="rounded-2xl mb-6 shadow-md">
+      <p class="text-center text-gray-600 mb-6">Corsi di laurea in scienze.</p>
+      <a href="#" class="px-6 py-3 bg-teal-600 text-white rounded-full shadow hover:bg-teal-700 transition">Scopri di più</a>
+    </div>
+
+    <!-- Slide 9 -->
+    <div class="slide absolute inset-0 flex flex-col items-center justify-center p-6">
+      <h3 class="text-3xl font-bold text-indigo-700 mb-4">TOLC-SPS</h3>
+      <img src="https://via.placeholder.com/500x250/6366F1/ffffff?text=TOLC-SPS" alt="TOLC-SPS" class="rounded-2xl mb-6 shadow-md">
+      <p class="text-center text-gray-600 mb-6">Corsi di laurea in scienze politiche e sociali.</p>
+      <a href="#" class="px-6 py-3 bg-indigo-600 text-white rounded-full shadow hover:bg-indigo-700 transition">Scopri di più</a>
+    </div>
+
+    <!-- Slide 10 -->
+    <div class="slide absolute inset-0 flex flex-col items-center justify-center p-6">
+      <h3 class="text-3xl font-bold text-purple-700 mb-4">TOLC-SU</h3>
+      <img src="https://via.placeholder.com/500x250/7C3AED/ffffff?text=TOLC-SU" alt="TOLC-SU" class="rounded-2xl mb-6 shadow-md">
+      <p class="text-center text-gray-600 mb-6">Corsi di laurea in scienze umane.</p>
+      <a href="#" class="px-6 py-3 bg-purple-600 text-white rounded-full shadow hover:bg-purple-700 transition">Scopri di più</a>
+    </div>
+  </div>
+
+  <!-- Bottoni navigazione -->
+  <button id="prev" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white border-2 border-gray-300 text-gray-700 p-3 rounded-full shadow hover:bg-gray-100 z-20">❮</button>
+  <button id="next" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white border-2 border-gray-300 text-gray-700 p-3 rounded-full shadow hover:bg-gray-100 z-20">❯</button>
+
+  <!-- Indicatori -->
+  <div id="indicators" class="flex justify-center mt-4 gap-2"></div>
+</div>
+
+<!-- JS carosello -->
+<script>
+const slides = document.querySelectorAll('.slide');
+const slideCount = slides.length;
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const indicators = document.getElementById('indicators');
+let currentIndex = 0;
+let autoplayInterval;
+
+// Crea indicatori
+slides.forEach((_, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'w-3 h-3 rounded-full bg-gray-400';
+  dot.addEventListener('click', () => goToSlide(i));
+  indicators.appendChild(dot);
+});
+
+// Mostra slide attiva
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+  updateIndicators();
+}
+
+// Aggiorna indicatori
+function updateIndicators() {
+  Array.from(indicators.children).forEach((dot, i) => {
+    dot.classList.toggle('bg-blue-600', i === currentIndex);
+    dot.classList.toggle('bg-gray-400', i !== currentIndex);
+  });
+}
+
+// Navigazione
+function goToSlide(index) {
+  currentIndex = (index + slideCount) % slideCount;
+  showSlide(currentIndex);
+  resetAutoplay();
+}
+
+prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+// Autoplay
+function startAutoplay() {
+  autoplayInterval = setInterval(() => {
+    goToSlide(currentIndex + 1);
+  }, 4000);
+}
+
+function resetAutoplay() {
+  clearInterval(autoplayInterval);
+  startAutoplay();
+}
+
+// Mostra prima slide e avvia autoplay
+showSlide(currentIndex);
+startAutoplay();
+</script>
+
+<!-- CSS fade/zoom -->
+<style>
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 10;
+}
+</style>
+
+
+<!-- Footer -->
+<footer class="w-full bg-blue-600 text-white py-6 mt-10 flex flex-col items-center">
+  <p>&copy; 2025 Guida al TOLC. Tutti i diritti riservati.</p>
+</footer>
+
