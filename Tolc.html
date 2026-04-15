@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TOLC - Chiave dell'Uni</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="index.css"/>
+</head>
+<body class="bg-gray-50">
+
+<nav class="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center space-x-3">
+      <img src="img/logo.png" alt="Logo" class="h-8 w-auto object-contain">
+      <span class="text-xl font-bold text-blue-700 hidden sm:inline">Chiave dell'Uni</span>
+    </a>
+    <ul class="hidden md:flex space-x-8 font-medium text-gray-700">
+      <li><a href="esami.html" class="text-blue-600 font-bold">Esami</a></li>
+      <li><a href="universita.html" class="hover:text-blue-600 transition">Università</a></li>
+      <li><a href="alloggio.html" class="hover:text-blue-600 transition">Alloggio</a></li>
+      <li><a href="approfondimenti.html" class="hover:text-blue-600 transition">Città</a></li>
+      <li><a href="glossario.html" class="hover:text-blue-600 transition">Glossario</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="w-full bg-blue-600 text-white py-20 mt-16 flex flex-col items-center text-center px-6">
+  <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Tutto quello che devi sapere sui TOLC</h1>
+  <p class="text-xl max-w-2xl mb-8">I test di accesso per l'università: come funzionano, come iscriverti e come prepararti.</p>
+  <div class="flex gap-4">
+      <a href="#tipologie" class="px-6 py-3 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition">Trova il tuo TOLC</a>
+      <a href="https://www.cisiaonline.it/" target="_blank" class="px-6 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-blue-600 transition">Calendario Date</a>
+  </div>
+</section>
+
+<main class="max-w-5xl mx-auto px-6 py-12 space-y-12">
+
+  <section id="cosa-serve">
+    <h2>Cos'è e a cosa serve</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+      
+      <div class="space-y-3">
+        <h3 class="text-xl font-bold text-blue-700">Universalità</h3>
+        <p class="text-gray-700 text-base leading-relaxed">
+          Il TOLC è un test standardizzato, il che significa che è unico e valido per l'accesso a moltissimi atenei italiani. Questo ti permette di sostenere un solo esame e utilizzarne il punteggio per candidarti in diverse università che richiedono la stessa tipologia di test.
+          </p>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="text-xl font-bold text-blue-700">Modalità</h3>
+        <p class="text-gray-700 text-base leading-relaxed">
+          Hai la flessibilità di scegliere come sostenere il test. È disponibile come <b>TOLC@UNI</b>, svolto fisicamente presso le sedi universitarie, oppure come <b>TOLC@CASA</b>, che ti permette di fare l'esame da remoto, a casa tua, sotto la supervisione del CISIA. Entrambe le modalità hanno la stessa validità.
+          </p>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="text-xl font-bold text-blue-700">Ripetibilità</h3>
+        <p class="text-gray-700 text-base leading-relaxed">
+          Se non sei soddisfatto del tuo punteggio, non preoccuparti. Puoi ripetere il TOLC una volta per ogni mese solare. Questo ti offre l'opportunità di prepararti meglio e riprovare per migliorare il tuo risultato finale e aumentare le tue possibilità di ammissione.
+          </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="tipologie">
+    <h2>Architettura dei Tipi di TOLC</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="border rounded-lg p-4 hover:shadow-md transition">
+        <h3 class="font-bold text-lg text-blue-700">TOLC-E</h3>
+        <p class="text-sm text-gray-600">Economia e ambito giuridico. 36 quesiti (90 min).</p>
+      </div>
+      <div class="border rounded-lg p-4 hover:shadow-md transition">
+        <h3 class="font-bold text-lg text-blue-700">TOLC-I</h3>
+        <p class="text-sm text-gray-600">Ingegneria e ambito tecnico. 50 quesiti (125 min).</p>
+      </div>
+      <div class="border rounded-lg p-4 hover:shadow-md transition">
+        <h3 class="font-bold text-lg text-blue-700">TOLC-SU</h3>
+        <p class="text-sm text-gray-600">Studi Umanistici. 30 quesiti (100 min).</p>
+      </div>
+      <div class="border rounded-lg p-4 hover:shadow-md transition">
+        <h3 class="font-bold text-lg text-blue-700">TOLC-S</h3>
+        <p class="text-sm text-gray-600">Scienze (Bio, Chimica, Fisica). 50 quesiti (125 min).</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Struttura del Test e Punteggi</h2>
+    <div class="overflow-x-auto bg-blue-50 p-6 rounded-lg">
+      <ul class="space-y-4">
+        <li class="flex justify-between items-center border-b border-blue-200 pb-2">
+          <span>Risposta Esatta</span>
+          <span class="font-bold text-green-600 text-xl">+1 punto</span>
+        </li>
+        <li class="flex justify-between items-center border-b border-blue-200 pb-2">
+          <span class="font-bold text-red-600 underline">Risposta Errata</span>
+          <span class="font-bold text-red-600 text-xl">-0,25 punti</span>
+        </li>
+        <li class="flex justify-between items-center">
+          <span>Risposta non data</span>
+          <span class="font-bold text-gray-500 text-xl">0 punti</span>
+        </li>
+      </ul>
+      <p class="mt-4 text-sm italic text-gray-600">Nota: La penalità per l'errore è fondamentale per la tua strategia. Se sei indeciso, valuta se rischiare!</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>I 5 Passi per il TOLC</h2>
+    <div class="space-y-6 border-l-2 border-blue-200 ml-4 pl-8 relative">
+      <div class="relative"><span class="absolute -left-12 top-0 bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">1</span>
+        <h3 class="font-bold">Registrazione</h3><p class="text-sm">Crea il tuo profilo sul portale CISIA.</p>
+      </div>
+      <div class="relative"><span class="absolute -left-12 top-0 bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span>
+        <h3 class="font-bold">Scelta Data</h3><p class="text-sm">Scegli la tipologia e la data disponibile.</p>
+      </div>
+      <div class="relative"><span class="absolute -left-12 top-0 bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</span>
+        <h3 class="font-bold">Pagamento</h3><p class="text-sm">Contributo di 30€ (tramite MAV o Carta).</p>
+      </div>
+      <div class="relative"><span class="absolute -left-12 top-0 bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">4</span>
+        <h3 class="font-bold">Svolgimento</h3><p class="text-sm">Sostieni il test in sede o a casa.</p>
+      </div>
+      <div class="relative"><span class="absolute -left-12 top-0 bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">5</span>
+        <h3 class="font-bold">Bandi Universitari</h3><p class="text-sm"><b>Attenzione:</b> Dopo il test devi iscriverti al bando del tuo Ateneo!</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-yellow-50 border-2 border-yellow-200">
+    <h2 class="text-yellow-800">Guida all'Area Riservata</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div class="bg-white p-4 rounded shadow-sm text-center">
+        <p class="text-xs uppercase text-gray-500 font-bold">Prerequisito</p>
+        <p class="font-semibold text-blue-800">Codice Fiscale</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow-sm text-center">
+        <p class="text-xs uppercase text-gray-500 font-bold">Prerequisito</p>
+        <p class="font-semibold text-blue-800">Email Personale</p>
+      </div>
+      <div class="bg-white p-4 rounded shadow-sm text-center">
+        <p class="text-xs uppercase text-gray-500 font-bold">Prerequisito</p>
+        <p class="font-semibold text-blue-800">Documento d'Identità</p>
+      </div>
+    </div>
+
+    <div class="bg-blue-800 text-white p-6 rounded-lg mb-6">
+        <h3 class="font-bold mb-2">Differenza Fondamentale:</h3>
+        <p class="text-sm"><b>Sito CISIA:</b> Serve solo per prenotare e fare il test.</p>
+        <p class="text-sm"><b>Sito Università:</b> Serve per presentare la domanda di ammissione con il voto preso nel TOLC.</p>
+    </div>
+
+    <a href="https://testcisia.it/area_riservata_tolc/login.php" target="_blank" class="section-link w-full text-center">Vai alla registrazione CISIA</a>
+  </section>
+
+</main>
+
+<footer class="w-full bg-blue-600 text-white py-10 flex flex-col items-center">
+  <p>© 2025 Chiave dell'Uni - Tutti i diritti riservati</p>
+  <p class="mt-2"><a href="mailto:chiavedelluni.info@gmail.com">Contattaci</a> | <a href="privacy.html">Privacy</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guida Passo-Passo - Chiave dell'Uni</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="index.css"/>
+  <style>
+    .wizard-step { animation: fadeIn 0.4s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .city-btn, .area-btn { transition: all 0.2s ease; cursor: pointer; }
+    .city-btn:hover, .area-btn:hover { transform: translateY(-2px); border-color: #3b82f6; background-color: #eff6ff; }
+    /* Scrollbar personalizzata per la lista città */
+    #city-list::-webkit-scrollbar { width: 6px; }
+    #city-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col font-['Lexend']">
+
+<nav class="w-full bg-white shadow-md fixed top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-blue-700 font-bold text-xl">Chiave dell'Uni</a>
+    <ul class="hidden md:flex space-x-6 items-center">
+      <li><a href="esami.html" class="hover:text-blue-600 transition">Esami</a></li>
+      <li><a href="universita.html" class="hover:text-blue-600 transition">Università</a></li>
+      <li><a href="guida-wizard.html" class="bg-orange-500 text-white px-4 py-2 rounded-full font-bold shadow-md hover:bg-orange-600 transition">Guida Passo-Passo 🚀</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="flex-grow flex items-center justify-center pt-32 pb-12 px-6">
+  <div id="wizard-container" class="max-w-2xl w-full bg-white rounded-2xl shadow-2xl p-8 pt-20 min-h-[600px] flex flex-col relative border-t-8 border-blue-700">
+    
+    <button id="prev-btn" onclick="prevStep()" class="hidden absolute top-6 left-8 text-blue-600 font-bold flex items-center hover:text-blue-800 transition-all uppercase text-xs tracking-widest">
+      ← Torna indietro
+    </button>
+
+    <div class="w-full bg-gray-200 h-2 rounded-full mb-10">
+      <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-500" style="width: 25%"></div>
+    </div>
+
+    <div id="step-1" class="wizard-step">
+      <h2 class="text-3xl font-bold text-blue-900 mb-6 text-center">Cosa vorresti studiare?</h2>
+      
+      <div class="relative mb-6">
+        <input type="text" id="area-search" onkeyup="filterAreas()" placeholder="Cerca facoltà (es. Medicina, Ingegneria...)" 
+               class="w-full p-4 pl-12 border-2 border-gray-100 rounded-xl focus:border-blue-500 outline-none shadow-sm">
+        <span class="absolute left-4 top-4 opacity-40">🔍</span>
+      </div>
+
+      <div id="area-list" class="grid grid-cols-2 gap-4 mb-8">
+        <button onclick="nextStep(2, 'Ingegneria')" class="area-btn p-5 border-2 border-gray-100 rounded-xl text-left">
+          <span class="text-2xl mb-1 block">⚙️</span>
+          <span class="font-bold text-gray-700">Ingegneria</span>
+        </button>
+        <button onclick="nextStep(2, 'Lettere')" class="area-btn p-5 border-2 border-gray-100 rounded-xl text-left">
+          <span class="text-2xl mb-1 block">📚</span>
+          <span class="font-bold text-gray-700">Lettere</span>
+        </button>
+        <button onclick="nextStep(2, 'Medicina')" class="area-btn p-5 border-2 border-gray-100 rounded-xl text-left">
+          <span class="text-2xl mb-1 block">🩺</span>
+          <span class="font-bold text-gray-700">Medicina</span>
+        </button>
+        <button onclick="nextStep(2, 'Economia')" class="area-btn p-5 border-2 border-gray-100 rounded-xl text-left">
+          <span class="text-2xl mb-1 block">📊</span>
+          <span class="font-bold text-gray-700">Economia</span>
+        </button>
+      </div>
+
+      <div class="p-4 bg-blue-50 rounded-xl text-center border border-blue-100">
+        <p class="text-sm text-blue-800 mb-3">Se non ci hai ancora pensato dai un'occhiata a tutte le opzioni:</p>
+        <a href="universita.html" class="inline-block bg-white text-blue-600 font-bold py-2 px-6 rounded-lg border border-blue-200 hover:bg-blue-100 transition shadow-sm text-sm">ESPLORA AREE DI STUDIO →</a>
+      </div>
+    </div>
+
+    <div id="step-2" class="wizard-step hidden">
+      <h2 class="text-3xl font-bold text-blue-900 mb-1 text-center">In quale città vuoi iscriverti?</h2>
+      <p id="summary-area" class="text-center text-blue-600 font-bold mb-8 uppercase text-sm tracking-widest"></p>
+
+      <div class="relative mb-6">
+        <input type="text" id="city-search" onkeyup="filterCities()" placeholder="Cerca la tua città (es. Torino, Milano...)" 
+               class="w-full p-4 pl-12 border-2 border-gray-100 rounded-xl focus:border-blue-500 outline-none shadow-sm">
+        <span class="absolute left-4 top-4 opacity-40">🔍</span>
+      </div>
+
+      <div id="city-list" class="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-56 overflow-y-auto p-2 border-b border-gray-100 mb-8">
+        </div>
+
+      <div class="p-4 bg-blue-50 rounded-xl text-center border border-blue-100">
+        <p class="text-sm text-blue-800 mb-3">Indeciso sulla sede? Dai un'occhiata qui:</p>
+        <a href="approfondimenti.html" class="inline-block bg-white text-blue-600 font-bold py-2 px-6 rounded-lg border border-blue-200 hover:bg-blue-100 transition shadow-sm text-sm">ESPLORA LE CITTÀ →</a>
+      </div>
+    </div>
+
+    <div id="step-3" class="wizard-step hidden">
+      <h2 class="text-3xl font-bold text-blue-900 mb-8 text-center">Hai bisogno di un alloggio?</h2>
+      <div class="grid grid-cols-1 gap-4 mb-8">
+        <button onclick="nextStep(4, 'Sì')" class="p-5 border-2 border-gray-100 rounded-xl hover:border-blue-500 font-bold text-gray-700 flex justify-between items-center text-lg">
+          Sì, cerco supporto e borse <span>🏠</span>
+        </button>
+        <button onclick="nextStep(4, 'No')" class="p-5 border-2 border-gray-100 rounded-xl hover:border-blue-500 font-bold text-gray-700 flex justify-between items-center text-lg">
+          No, ho già una soluzione <span>✅</span>
+        </button>
+      </div>
+
+      <div class="p-4 bg-blue-50 rounded-xl text-center border border-blue-100">
+        <p class="text-sm text-blue-800 mb-3">Vuoi capire come funzionano i bandi regionali?</p>
+        <a href="alloggio.html" class="inline-block bg-white text-blue-600 font-bold py-2 px-6 rounded-lg border border-blue-200 hover:bg-blue-100 transition shadow-sm text-sm">GUIDA ALLOGGI E BORSE →</a>
+      </div>
+    </div>
+
+    <div id="step-4" class="wizard-step hidden">
+      <div class="bg-green-50 border-2 border-green-200 p-6 rounded-xl mb-6">
+        <h2 class="text-2xl font-bold text-green-800 mb-1">Piano d'azione pronto!</h2>
+        <p id="final-summary" class="text-green-700 font-medium italic"></p>
+      </div>
+
+      <div id="final-steps" class="space-y-4 mb-8">
+        </div>
+      
+      <div class="mt-8 p-6 bg-blue-900 rounded-2xl text-white text-center shadow-lg">
+        <h3 class="text-xl font-bold mb-2">Non perdere le scadenze 📧</h3>
+        <p class="text-blue-100 text-sm mb-4">Ricevi un promemoria via mail quando esce il bando per questa sede.</p>
+        <div class="flex flex-col sm:flex-row gap-2">
+            <input type="email" placeholder="La tua email" class="flex-grow p-3 rounded-lg text-gray-900 outline-none">
+            <button class="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg font-bold transition whitespace-nowrap">AVVISAMI</button>
+        </div>
+      </div>
+
+      <button onclick="location.reload()" class="w-full text-center text-blue-600 font-bold hover:underline mt-8 uppercase text-sm">Ricomincia da capo</button>
+    </div>
+
+  </div>
+</main>
+
+<script>
+  let currentStep = 1;
+  let userData = { area: '', city: '', housing: '' };
+  
+  // Fac-simile città
+  const citiesList = ["Roma", "Torino", "Milano", "Bologna", "Pisa", "Padova", "Napoli", "Firenze"];
+
+  function filterAreas() {
+    const input = document.getElementById('area-search').value.toLowerCase();
+    document.querySelectorAll('.area-btn').forEach(btn => {
+      btn.style.display = btn.innerText.toLowerCase().includes(input) ? "block" : "none";
+    });
+  }
+
+  function filterCities() {
+    const input = document.getElementById('city-search').value.toLowerCase();
+    document.querySelectorAll('.city-btn').forEach(btn => {
+      btn.style.display = btn.innerText.toLowerCase().includes(input) ? "block" : "none";
+    });
+  }
+
+  function loadCities() {
+    const container = document.getElementById('city-list');
+    container.innerHTML = '';
+    citiesList.sort().forEach(city => {
+      const btn = document.createElement('button');
+      btn.className = "city-btn p-3 border border-gray-100 rounded-lg text-sm font-bold text-gray-700 bg-white shadow-sm";
+      btn.innerText = city;
+      btn.onclick = () => nextStep(3, city);
+      container.appendChild(btn);
+    });
+  }
+
+  function nextStep(step, value) {
+    if (currentStep === 1) {
+      userData.area = value;
+      document.getElementById('summary-area').innerText = "Hai scelto: " + value;
+      loadCities();
+    } else if (currentStep === 2) {
+      userData.city = value;
+    } else if (currentStep === 3) {
+      userData.housing = value;
+    }
+    currentStep = step;
+    updateUI();
+  }
+
+  function prevStep() {
+    if (currentStep > 1) {
+      currentStep--;
+      updateUI();
+    }
+  }
+
+  function updateUI() {
+    document.querySelectorAll('.wizard-step').forEach(s => s.classList.add('hidden'));
+    document.getElementById('step-' + currentStep).classList.remove('hidden');
+    
+    const prevBtn = document.getElementById('prev-btn');
+    prevBtn.classList.toggle('hidden', currentStep === 1 || currentStep === 4);
+    
+    document.getElementById('progress-bar').style.width = (currentStep * 25) + '%';
+    
+    if (currentStep === 4) showFinalResults();
+  }
+
+  function showFinalResults() {
+    document.getElementById('final-summary').innerText = `Tutto quello che devi fare per studiare ${userData.area} a ${userData.city}:`;
+    
+    // Logica TOLC
+    let tolcName = "TOLC specifico";
+    if(userData.area === 'Ingegneria') tolcName = "TOLC-I";
+    if(userData.area === 'Medicina') tolcName = "Test Nazionale Medicina";
+    if(userData.area === 'Lettere') tolcName = "TOLC-SU";
+
+    // Logica Ente Regionale (Fac-simile)
+    let enteNome = "Ente Regionale";
+    if(userData.city === 'Torino') enteNome = "EDISU Piemonte";
+    if(userData.city === 'Milano') enteNome = "EDISU Lombardia";
+    if(userData.city === 'Roma') enteNome = "DiSCo Lazio (Edisu)";
+
+    let html = `
+      <div class="p-6 border-2 border-gray-100 rounded-2xl bg-white shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div class="flex gap-4">
+          <span class="text-3xl">📝</span>
+          <div>
+            <p class="font-bold text-blue-900 text-lg uppercase tracking-tight">1. Iscriviti al ${tolcName}</p>
+            <p class="text-sm text-gray-600">Prenota la data sul portale CISIA e consulta i materiali di studio.</p>
+          </div>
+        </div>
+        <a href="#" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition w-full md:w-auto text-center shadow-md">VAI AL TEST →</a>
+      </div>
+
+      <div class="p-6 border-2 border-gray-100 rounded-2xl bg-white shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div class="flex gap-4">
+          <span class="text-3xl">🏛️</span>
+          <div>
+            <p class="font-bold text-blue-900 text-lg uppercase tracking-tight">2. Università a ${userData.city}</p>
+            <p class="text-sm text-gray-600">Scarica il bando ufficiale e controlla i requisiti di accesso della tua sede.</p>
+          </div>
+        </div>
+        <a href="#" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition w-full md:w-auto text-center shadow-md">VEDI ATENEO →</a>
+      </div>
+
+      <div class="p-6 border-2 border-gray-100 rounded-2xl bg-white shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div class="flex gap-4">
+          <span class="text-3xl">🏠</span>
+          <div>
+            <p class="font-bold text-blue-900 text-lg uppercase tracking-tight">3. Borse e Alloggio: ${enteNome}</p>
+            <p class="text-sm text-gray-600">Gestisci la domanda di borsa di studio e alloggio universitario per la regione.</p>
+          </div>
+        </div>
+        <a href="#" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition w-full md:w-auto text-center shadow-md">ALLOGGI →</a>
+      </div>
+    `;
+    
+    document.getElementById('final-steps').innerHTML = html;
+  }
+
+  updateUI();
+</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Test Ministeriali - Chiave dell'Uni</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="index.css"/>
+</head>
+<body class="bg-gray-50">
+
+<nav class="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center space-x-3">
+      <img src="img/logo.png" alt="Logo" class="h-8 w-auto object-contain">
+      <span class="text-xl font-bold text-blue-700">Chiave dell'Uni</span>
+    </a>
+    <ul class="hidden md:flex space-x-8 font-medium text-gray-700">
+      <li><a href="esami.html" class="hover:text-blue-600 transition">TOLC</a></li>
+      <li><a href="ministeriali.html" class="text-blue-600 font-bold">Ministeriali</a></li>
+      <li><a href="universita.html" class="hover:text-blue-600 transition">Università</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="w-full bg-blue-700 text-white py-20 mt-16 flex flex-col items-center text-center px-6">
+  <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Test Ministeriali 2025/26</h1>
+  <p class="text-xl max-w-2xl mb-8">Medicina, Veterinaria e Architettura: la guida definitiva ai concorsi nazionali.</p>
+  
+  <div class="bg-white text-gray-800 p-6 rounded-xl shadow-2xl flex flex-col md:flex-row gap-8 items-center border-t-4 border-yellow-400">
+    <div class="text-left">
+      <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Stato Attuale</span>
+      <p class="text-2xl font-bold text-green-600">Iscrizioni Aperte</p>
+    </div>
+    <div class="h-px md:h-12 w-full md:w-px bg-gray-200"></div>
+    <div class="text-left">
+      <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Scadenza Universitaly</span>
+      <p class="text-2xl font-bold text-blue-700">12 Giorni Rimasti</p>
+    </div>
+  </div>
+</section>
+
+<main class="max-w-5xl mx-auto px-6 py-12 space-y-16">
+
+  <section>
+    <h2>Funzionamento e Punteggio</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div>
+        <h3 class="text-xl font-bold mb-4 text-blue-800">La Struttura (Esempio Medicina)</h3>
+        <p class="mb-4">Il test prevede <b>60 quesiti</b> a risposta multipla da completare in <b>100 minuti</b>.</p>
+        <ul class="space-y-2 text-gray-700">
+          <li class="flex justify-between border-b pb-1"><span>Biologia</span> <span>23 quesiti</span></li>
+          <li class="flex justify-between border-b pb-1"><span>Chimica</span> <span>15 quesiti</span></li>
+          <li class="flex justify-between border-b pb-1"><span>Fisica e Matematica</span> <span>13 quesiti</span></li>
+          <li class="flex justify-between border-b pb-1"><span>Ragionamento Logico</span> <span>5 quesiti</span></li>
+          <li class="flex justify-between"><span>Cultura Generale</span> <span>4 quesiti</span></li>
+        </ul>
+      </div>
+      <div class="bg-blue-50 p-6 rounded-lg border border-blue-100">
+        <h3 class="text-xl font-bold mb-4 text-blue-800">Calcolo Punteggio Ministeriale</h3>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between bg-white p-3 rounded shadow-sm">
+            <span class="font-medium">Risposta Esatta</span>
+            <span class="text-green-600 font-bold text-xl">+1,5</span>
+          </div>
+          <div class="flex items-center justify-between bg-white p-3 rounded shadow-sm border-l-4 border-red-500">
+            <span class="font-medium">Risposta Errata</span>
+            <span class="text-red-600 font-bold text-xl">-0,4</span>
+          </div>
+          <div class="flex items-center justify-between bg-white p-3 rounded shadow-sm">
+            <span class="font-medium">Risposta Omessa</span>
+            <span class="text-gray-400 font-bold text-xl">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Percorso verso l'Immatricolazione</h2>
+    <div class="relative space-y-8 after:content-[''] after:absolute after:left-4 after:top-0 after:h-full after:w-0.5 after:bg-blue-200 pl-10">
+      <div>
+        <span class="absolute left-0 top-0 w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center font-bold z-10">1</span>
+        <h3 class="font-bold">Iscrizione su Universitaly</h3>
+        <p class="text-gray-600">Crea il profilo e inserisci le preferenze. <b>Attenzione:</b> l'ordine delle sedi è vincolante e non modificabile dopo la scadenza!</p>
+      </div>
+      <div>
+        <span class="absolute left-0 top-0 w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center font-bold z-10">2</span>
+        <h3 class="font-bold">Pagamento Contributo</h3>
+        <p class="text-gray-600">Si paga presso l'università scelta come "Prima Scelta". Controlla sempre il bando dell'ateneo specifico.</p>
+      </div>
+      <div>
+        <span class="absolute left-0 top-0 w-8 h-8 bg-blue-700 text-white rounded-full flex items-center justify-center font-bold z-10">3</span>
+        <h3 class="font-bold">Scorrimento Graduatoria</h3>
+        <p class="text-gray-600">Gestisci lo stato di Assegnato o Prenotato nel portale nazionale.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white border-2 border-blue-100 p-8 rounded-xl">
+    <h2 class="text-blue-900">Glossario della Graduatoria</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="p-4 bg-green-50 rounded-lg">
+        <h4 class="font-bold text-green-800">Assegnato</h4>
+        <p class="text-sm">Hai ottenuto il posto nella tua prima scelta. Devi immatricolarti entro 4 giorni o perdi il posto definitivamente.</p>
+      </div>
+      <div class="p-4 bg-blue-50 rounded-lg">
+        <h4 class="font-bold text-blue-800">Prenotato</h4>
+        <p class="text-sm">Posto ottenuto in una scelta successiva. Puoi immatricolarti subito o aspettare gli scorrimenti per una scelta migliore.</p>
+      </div>
+      <div class="p-4 bg-gray-50 rounded-lg">
+        <h4 class="font-bold text-gray-800">In Attesa</h4>
+        <p class="text-sm">Non hai ancora un posto. Devi confermare l'interesse ogni settimana nell'area riservata per restare in graduatoria.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>TOLC vs Ministeriali</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-collapse bg-white">
+        <thead>
+          <tr class="bg-blue-700 text-white">
+            <th class="p-4 border">Caratteristica</th>
+            <th class="p-4 border">TOLC</th>
+            <th class="p-4 border">Ministeriali</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700">
+          <tr>
+            <td class="p-4 border font-bold">Piattaforma</td>
+            <td class="p-4 border">CISIA</td>
+            <td class="p-4 border">Universitaly</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="p-4 border font-bold">Data</td>
+            <td class="p-4 border">Multiple (fino a 1 al mese)</td>
+            <td class="p-4 border">Data unica nazionale</td>
+          </tr>
+          <tr>
+            <td class="p-4 border font-bold">Graduatoria</td>
+            <td class="p-4 border">Locale (singolo ateneo)</td>
+            <td class="p-4 border">Nazionale unica</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="p-4 border font-bold">Penalità Errore</td>
+            <td class="p-4 border font-red-600">-0,25</td>
+            <td class="p-4 border font-red-600 font-bold">-0,40</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="w-full bg-blue-600 text-white py-8 text-center mt-20">
+  <p>© 2025 Chiave dell'Uni - Iscriviti alla nostra newsletter per i decreti MUR</p>
+</footer>
+
+</body>
+</html>
